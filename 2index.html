@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARTSGVPTCOUNSEL: Arts Revolution Hub</title>
+  <style>
+    body { font-family: 'Arial', sans-serif; background: linear-gradient(to bottom, #0f1626, #1a1a2e); color: #fff; margin: 0; padding: 0; }
+    header { background: linear-gradient(135deg, #ff6b6b, #feca57); padding: 40px; text-align: center; }
+    h1 { font-size: 3em; margin: 0; text-shadow: 0 4px 8px rgba(0,0,0,0.3); }
+    .tagline { font-size: 1.3em; margin: 10px 0; }
+    .alert { background: #ff3838; padding: 15px; margin: 20px auto; max-width: 800px; border-radius: 10px; text-align: center; font-weight: bold; }
+    section { padding: 30px; max-width: 1000px; margin: 20px auto; background: rgba(255,255,255,0.1); border-radius: 15px; backdrop-filter: blur(10px); }
+    .chart-container { width: 100%; max-width: 600px; margin: 20px auto; }
+    .report-form { background: #1a1a2e; padding: 20px; border-radius: 15px; }
+    form { display: flex; flex-direction: column; }
+    input, button { padding: 12px; margin: 10px 0; border: none; border-radius: 8px; }
+    button { background: #00d2ff; font-weight: bold; cursor: pointer; }
+    button:hover { background: #00aaff; }
+    #live-feed { list-style: none; padding: 0; }
+    #live-feed li { background: rgba(255,255,255,0.2); padding: 10px; margin: 5px 0; border-radius: 5px; }
+    .zero { font-size: 4em; color: #ff3838; font-weight: bold; }
+    .pyramid { text-align: center; font-size: 1.2em; }
+    .pyramid div { margin: 10px; padding: 10px; background: rgba(255,255,255,0.2); border-radius: 5px; }
+    .resources { list-style: number; padding-left: 20px; }
+    .resources a { color: #00d2ff; text-decoration: none; }
+    .resources a:hover { text-decoration: underline; }
+    footer { text-align: center; padding: 20px; font-size: 0.9em; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ARTSGVPTCOUNSEL</h1>
+    <p class="tagline">Arts Revolution: Student-Centered, Explorative, Alive — Every Child a Creator</p>
+  </header>
+
+  <div class="alert">
+    HUMBOLDT COUNTY: <span class="zero">0</span> NEW ARTS TEACHERS HIRED (2023–2025) — Arts Rule, Get On Board!
+  </div>
+
+  <section>
+    <h2>Dawn's Story: From Cycles to Creation</h2>
+    <p>I am Dawn, a credentialed visual arts teacher in Trinidad, CA. Freed from cycles, rooted in Tuscarora birthright aligned with Wiyot resilience. I published *The Pattern Finder* to celebrate non-linear thinkers like Tsewen — brilliant kids told they're "less-than." Humboldt got $3M in Prop 28 funds — and hired ZERO new arts teachers. This site tracks the truth, demands change, and launches After-Hours Arts Creators. Arts heal; gardens teach abundance. Arts rule!</p>
+  </section>
+
+  <section class="pyramid">
+    <h2>The Inverted Pyramid: Students Are Boss</h2>
+    <div class="pyramid">
+      <div><strong>Students</strong> — Drive your learning!</div>
+      <div><strong>Parents</strong> — Guide and support.</div>
+      <div><strong>Teachers</strong> — Facilitate creators.</div>
+      <div><strong>Admins</strong> — Provide resources or step aside.</div>
+    </div>
+    <p>Sue the Super-Principles if needed — stop making art-needing kids the villains!</p>
+  </section>
+
+  <section class="chart-container">
+    <h2>Prop 28 Compliance Tracker (Real Data 2023–2025)</h2>
+    <canvas id="fundsChart"></canvas>
+    <p>80% must go to hiring — but misuse lawsuits in LAUSD ($76.7M) show the fight. Humboldt: 0 hires. Track, report, enforce!</p>
+  </section>
+
+  <section class="report-form">
+    <h2>Report a Missing Job or Misuse</h2>
+    <form id="reportForm">
+      <input type="text" placeholder="Your Name (Anonymous OK)" id="name" required>
+      <input type="text" placeholder="Details (e.g., Ferndale job vanished)" id="details" required>
+      <input type="email" placeholder="Email (Optional)" id="email">
+      <button type="submit">Submit Report</button>
+    </form>
+    <h3>Live Reports</h3>
+    <ul id="live-feed"></ul>
+  </section>
+
+  <section>
+    <h2>After-Hours Arts Creators — Open Now!</h2>
+    <p><strong>Wed • Thurs • Fri • 5:30–9 PM • Trinidad</strong><br>
+    Real visual arts, explorative and alive. $0–$20. Full-time mom/homeschooler Mon/Tue/Sat/Sun with Coastal Grove — evenings for creation.<br>
+    <strong>Donations, Ideas or More Information: Contact Dan Van or Dawn Van at ARTSGVPTCOUNSEL@gmail.com</strong></p>
+  </section>
+
+  <section>
+    <h2>California Visual Arts Standards (CA & Federal)</h2>
+    <ul>
+      <li><strong>Creating</strong>: Generate and refine ideas (e.g., patterns in *The Pattern Finder*).</li>
+      <li><strong>Presenting</strong>: Share and analyze art.</li>
+      <li><strong>Responding</strong>: Interpret and evaluate.</li>
+      <li><strong>Connecting</strong>: Relate to culture/history — global connections for abundance.</li>
+    </ul>
+    <p>National Core Arts Standards align — arts for cognitive, social, emotional growth. Research: Reduces special ed by 15-20% (NEA/CDE).</p>
+  </section>
+
+  <section>
+    <h2>GVPT Business Plan: For-Prophet Force</h2>
+    <p>The ART GVPT Counsel: Galvanizers, Visionaries, Pleasers, Transformers. Audit Prop 28, hire teachers, enforce 80% compliance. From Gemini chats: Student-centered curriculum with gardens (on hold, but coming). Lawsuits like LAUSD 2025 — we build the case.</p>
+    <p>Compliance Funnel: $1B funding → Bureaucracy → 0 Hires? Not anymore.</p>
+    <canvas id="complianceChart"></canvas>
+  </section>
+
+  <section>
+    <h2>Forensic Audit of Statutory Non-Compliance: Proposition 28 Implementation Failure in Humboldt County (FY 2023-2025)</h2>
+    <p>I. Executive Summary: The Gap Between Mandate and Implementation</p>
+    <p>Summary of Findings: Systemic Dereliction of Duty</p>
+    <p>This comprehensive audit confirms the critical findings that during the initial implementation phase of Proposition 28 (The Arts and Music in Schools (AMS) Funding Guarantee and Accountability Act), covering Fiscal Year (FY) 2023–24 and projecting into FY 2024–25, Local Educational Agencies (LEAs) within Humboldt County have failed demonstrably to convert guaranteed arts funding into mandated instructional employment. The assertion that there have been zero new certificated arts teachers hired by key reporting districts for FY 2023–24 is supported by official data indicating non-expenditure and programmatic delay, which collectively constitutes a systemic failure to meet the core legal objective of the Act.1</p>
+    <p>The central issue is not merely the presence of a rural teacher shortage, but rather the documented non-compliance and procedural delay exhibited by LEAs, specifically the failure to initiate spending and secure personnel in the first year. This inaction raises profound concerns regarding statutory compliance under the Supplement, Not Supplant (SNS) principle and the critical intent of the 80% Staffing Mandate.2 The practice of carrying over funds and relying on statutory exemptions or alternative spending classifications risks...</p>
+    <p><strong>Full PDF:</strong> <a href="Prop 28 Humboldt Arts Funding Inquiry.pdf">Download Forensic Audit PDF</a></p>
+  </section>
+
+  <section>
+    <h2>Resources and Links</h2>
+    <ul class="resources">
+      <li><a href="https://law.justia.com/codes/california/2010/edc/94932-94945.html">2010 California Code :: Education Code :: Article 18. Compliance, Enforcement, Process, And Penalties - Justia Law</a></li>
+      <li><a href="https://oag.ca.gov/news/press-releases/attorney-general-bonta-sues-trump-administration-freezing-billions-education">Attorney General Bonta Sues Trump Administration for Freezing Billions in Education Grants Just Weeks Before School Year Start</a></li>
+      <li><a href="https://www.cdss.ca.gov/inforesources/child-care-and-development/parent
