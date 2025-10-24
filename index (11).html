@@ -1,0 +1,108 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus Dawn - Arts Education Accountability</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f4f4f4; }
+    .container { max-width: 800px; margin: auto; }
+    h1 { color: #2c3e50; }
+    .section { background: #fff; padding: 15px; margin: 10px 0; border-radius: 5px; }
+    .scorecard { background: #ecf0f1; padding: 10px; }
+    form { display: flex; flex-direction: column; gap: 10px; }
+    button { background: #3498db; color: #fff; border: none; padding: 10px; cursor: pointer; }
+    button:hover { background: #2980b9; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Nexus Dawn</h1>
+    <p>Transforming K-12 arts education in California with accountability and equity. Powered by Proposition 28, we ensure $800M-$1B annually reaches students through credentialed teachers and innovative curricula.</p>
+
+    <div class="section">
+      <h2>Compliance Analytics</h2>
+      <div class="scorecard" id="scorecard">
+        <p><strong>Sample LEA Compliance:</strong> 75% FTE Spending (Target: 80%)</p>
+        <p>Gap: 5% | Students Affected: 500 | Action: UCP Filing Recommended</p>
+      </div>
+      <button onclick="updateScorecard()">Refresh Data</button>
+    </div>
+
+    <div class="section">
+      <h2>Governance Feedback (Inverted Hierarchy)</h2>
+      <form id="feedbackForm" onsubmit="submitFeedback(event)">
+        <textarea id="feedback" placeholder="Share your needs or suggestions..." rows="4" required></textarea>
+        <button type="submit">Submit to Advisory Board</button>
+      </form>
+      <p id="feedbackResponse"></p>
+    </div>
+
+    <div class="section">
+      <h2>Nexus Repository Preview</h2>
+      <p><strong>VAPA & Gardens Curriculum:</strong> Explore Dig In! lessons aligning NGSS/CCSS. Try "Crayons & Capital" for financial literacy through art.</p>
+      <p>Coming Soon: Full OER catalog with workflow tools.</p>
+    </div>
+
+    <div class="section">
+      <h2>Advocacy & Action</h2>
+      <p>File a Uniform Complaint Procedure (UCP) to enforce compliance. <a href="https://www.cde.ca.gov/re/cp/uc/" target="_blank">Download Template</a>.</p>
+      <p>Contact: <a href="mailto:info@nexusdawn.org">info@nexusdawn.org</a></p>
+    </div>
+  </div>
+
+  <script>
+    function updateScorecard() {
+      const scorecard = document.getElementById('scorecard');
+      scorecard.innerHTML = `<p><strong>Sample LEA Compliance:</strong> ${Math.random() * 10 + 70}% FTE Spending (Target: 80%)</p>
+                             <p>Gap: ${80 - (Math.random() * 10 + 70)}% | Students Affected: ${Math.floor(Math.random() * 1000)} | Action: UCP Filing Recommended</p>`;
+    }
+
+    function submitFeedback(event) {
+      event.preventDefault();
+      const feedback = document.getElementById('feedback').value;
+      document.getElementById('feedbackResponse').innerText = `Thank you! Your feedback "${feedback.substring(0, 20)}${feedback.length > 20 ? '...' : ''}" has been sent to the Advisory Board.`;
+      document.getElementById('feedbackForm').reset();
+    }
+  </script>
+</body>
+</html>
